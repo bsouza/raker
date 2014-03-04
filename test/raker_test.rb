@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative '../lib/raker'
 
-def prepare_to_clean
+def prepare_to_clear
   system "mkdir #{RAKER_PATH}" if !Dir.exist?(RAKER_PATH)
   system "touch #{RAKER_PATH}/test" if Dir.entries(RAKER_PATH) == [ '..', '.' ]
 end
@@ -28,11 +28,11 @@ describe Raker do
     end
   end
 
-  describe 'on clean' do    
+  describe 'on clear' do    
     describe 'when raker dir exist' do
       it 'should remove raker dir' do
-        prepare_to_clean
-        Raker.new(APP_PATH).clean
+        prepare_to_clear
+        Raker.new(APP_PATH).clear
         Dir.exist?(RAKER_PATH).must_equal false
       end
     end

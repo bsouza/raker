@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+case $1 in
+
+    make|clear|test) echo "starting ..." ;;
+
+    *) echo "invalid option!"
+       exit ;;
+
+esac
+
+DIR=`pwd`
+cd ~/dev/repos/github/raker
+rake $1[$DIR]

@@ -15,7 +15,13 @@ class Raker
     goto_default_path
   end
 
-  def clean
+  def test
+    goto_rakerdir
+    execute_tests
+    goto_default_path
+  end
+
+  def clear
     system "rm -rf #{@path}/raker"
   end
 
@@ -44,6 +50,10 @@ private
 
   def execute_make
     system "make #{show_output}"
+  end
+
+  def execute_tests
+    system "./test #{show_output}"
   end
 
   def show_output
